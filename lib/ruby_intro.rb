@@ -49,5 +49,20 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+ attr_accessor :isbn , :price
+ 
+ def initialize(isbn, price)
+   unless /[0-9-]/ =~ isbn 
+      raise ArgumentError.new("ISBN invalid")
+    end
+    unless price > 0
+      raise ArgumentError.new("price must be greater than 0")
+    end
+   @isbn = isbn
+   @price = price
+ end
+ 
+ def price_as_string
+   sprintf("$%.2f", price)
+ end
 end
