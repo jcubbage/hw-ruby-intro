@@ -3,15 +3,29 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  return 0 unless arr.length > 0
+  sum = 0
+  arr.each { |a| sum +=a}
+  sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  return 0 unless arr.length > 0
+  return arr[0] unless arr.length > 1
+  arr.sort.last(2).sum
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  i = arr.length - 1
+for x in 0..i
+  el1 = arr[x]
+  for y in 0..i
+    next if x == y
+    el2 = arr[y]
+    return true if el1 + el2 == n
+  end
+end
+  return false
 end
 
 # Part 2
